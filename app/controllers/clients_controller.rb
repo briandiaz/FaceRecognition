@@ -15,7 +15,6 @@ class ClientsController < ApplicationController
             "X-Mashape-Authorization" => "9Ljq88hL9yiUHoVngDpaqgAFblpGPEHZ"
           }
      ).body.to_json
-
     data = JSON.parse(data)
     @images = data["photos"]
   end

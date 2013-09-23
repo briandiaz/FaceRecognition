@@ -8,4 +8,7 @@ $(document).ready(function(){
 	$('.ojoderecho').hover(function(){
 		alert("Right Eye");
 	})
+	$("#boca").hover(function(){
+		alert("Mouth");
+	});
 })

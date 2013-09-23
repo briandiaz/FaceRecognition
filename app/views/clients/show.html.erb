@@ -46,6 +46,26 @@
   		margin-left: <%= features["nose"]["x"]+5 %>px;
   		margin-top: <%= features["nose"]["y"]-10 %>px;
   	}
+  	.bocaizq, .bocader, .bocacent{
+  		border-color: white;
+  		background-color: black;
+  		width: 10px;
+  		height: 2px;
+  		position: absolute;
+  		z-index: 999;
+  	}
+  	.bocaizq{
+  		margin-left: <%= features["mouth_left"]["x"] %>px;
+  		margin-top: <%= features["mouth_left"]["y"] %>px;
+  	}
+  	.bocader{
+  		margin-left: <%= features["mouth_right"]["x"] %>px;
+  		margin-top: <%= features["mouth_right"]["y"] %>px;
+  	}
+  	.bocacent{
+  		margin-left: <%= features["mouth_center"]["x"] %>px;
+  		margin-top: <%= features["mouth_center"]["y"] %>px;
+  	}
   </style>
 
 <p id="notice"><%= notice %></p>
@@ -88,6 +108,11 @@
 		  	<div class="ojoizquierdo"></div>
 		  	<div class="ojoderecho"></div>
 		  	<div class="nariz"></div>
+		  	<div id="boca">
+		  		<div class="bocaizq"></div>
+			  	<div class="bocacent"></div>
+			  	<div class="bocader"></div>
+		  	</div>
 		  	<img class="Face thumbnail" src="<%= @client.image %>" width="<%= image["width"] %>" height="<%= image["height"] %>">
 		  	<div class="caption">
 		        <h2><%= @client.nombre %></h2>

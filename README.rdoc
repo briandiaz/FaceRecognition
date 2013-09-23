@@ -1,28 +1,30 @@
-== README
+FaceRecognition
+====================
+This is a rails web app that consumes the Face API. It detects your face, eyes, mouth, nose, smile rate and your confidence rate.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Running the app
+-----------
+In your command line just do
+rake db:migrate
+and run the server
+rails s
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Enjoy it!
+If you want to colaborate just ask.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Resources
+-----------
+
+Frameworks/API's:
++ Face (https://www.mashape.com/lambda/face#!documentation)
++ Boostrap 3 (https://github.com/twbs/bootstrap)
+
+
+Author
+-------
+
+**Brian Díaz**
+
++ http://github.com/briandiaz
++ http://briandiaz.me

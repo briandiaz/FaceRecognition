@@ -1,0 +1,44 @@
+<h1>Listing clients</h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th><span class="glyphicon glyphicon-user"></span> Nombre</th>
+      <th><span class="glyphicon glyphicon-envelope"></span> Email</th>
+      <th><span class="glyphicon glyphicon-picture"></span> Image</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.nombre %></td>
+        <td><%= client.email %></td>
+        <td><a href="<%= client.image %>" title="Image"><%= client.image %></a></td>
+        <td><%= link_to 'Show', client %></td>
+        <td><%= link_to 'Edit', edit_client_path(client) %></td>
+        <td><%= link_to 'Destroy', client, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="row">
+<% @clients.each do |client| %>
+
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <img src="<%= client.image %>" alt="...">
+      <div class="caption">
+        <h3><%= client.nombre %></h3>
+        <p><%= link_to "View", client, :class=>"btn btn-default" %></p>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+</div>
+<br>
+<%= link_to 'New Client', new_client_path, :class => "btn btn-info" %>

@@ -1,0 +1,39 @@
+<div class="col-sm-12 col-md-6 col-lg-6 well">
+<%= form_for(@client) do |f| %>
+  <% if @client.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+      <% @client.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon glyphicon glyphicon-user"></span>
+      <%= f.text_field :nombre, :class => "form-control", :placeholder=>"Name" %>  
+    </div>
+  </div>
+  <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+        <%= f.text_field :email, :class => "form-control", :placeholder=>"Email" %>  
+      </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon glyphicon glyphicon-link"></span>
+      <%= f.text_field :image, :class => "form-control", :placeholder=>"Image" %>  
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Send", :class=>"btn btn-success" %>
+    <a href="#" id="reset" class="btn btn-danger">Cancel</a>
+  </div>
+<% end %>
+
+</div>

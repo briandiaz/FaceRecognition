@@ -1,0 +1,110 @@
+
+<%
+
+@images.each do |image|  
+	image["tags"].each do |features|
+
+%>
+
+
+  <style>
+  	.Face{
+  		width: <%= image["width"] %>;
+  		height: <%= image["height"] %>;
+  		position: absolute;
+  		z-index: 1;
+  	}
+  	.FaceRecognition{
+  		width: <%= image["width"] %>;
+  		height: <%= image["height"] %>;
+  	}
+  	.ojoizquierdo, .ojoderecho, .nariz{
+  		border-style:solid;
+		border-width:1px;
+		border-color: red;
+		border-radius: 100%;
+		-moz-border-radius: 100%;
+		-webkit-border-radius: 100%;
+		-ms-border-radius: 100%;
+		-o-border-radius: 100%;
+  		position: absolute;
+  		z-index: 999;
+  		width: 10px;
+  		height: 10px;
+  	}
+  	.ojoizquierdo{
+  		margin-left: <%= features["eye_left"]["x"]-5 %>px;
+  		margin-top: <%= features["eye_left"]["y"] %>px;
+  		border-color: white;
+  	}
+  	.ojoderecho{
+  		margin-left: <%= features["eye_right"]["x"]-5 %>px;
+  		margin-top: <%= features["eye_right"]["y"] %>px;
+  	}
+  	.nariz{
+  		border-color: yellow;
+  		margin-left: <%= features["nose"]["x"]+5 %>px;
+  		margin-top: <%= features["nose"]["y"]-10 %>px;
+  	}
+  </style>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+	<% attributes = features["attributes"].first %>
+
+	<div class="row well" style="min-height:<%= image["height"]+70 %>px">
+		<div class="col-md-6 col-sm-12 col-lg-6">
+			<h1>FaceRecognition Results</h1>
+			<h2><span class="glyphicon glyphicon-user"></span> 
+				<%= @client.nombre %>
+				<% if(attributes["smiling"]) %>
+				<button class="btn btn-success"><img src="http://simpleicon.com/wp-content/uploads/smile.png" width="50" height="50" alt="Smiling :)"/></button>
+				<% else %>
+				<button class="btn btn-danger"><img src="http://simpleicon.com/wp-content/uploads/sad.png" width="50" height="50" alt="Sad :("/></button>
+				<% end %>
+			</h2>
+			<div class="row">
+				<table class="table table-hover table-bordered">
+					<thead>
+						<th>Attribute</th>
+						<th>Rating</th>
+					</thead>	
+					<tbody>
+						<tr>
+							<td>Smile</td>
+							<td><%= attributes["smile_rating"] * 100 %>%</td>
+						</tr>
+						<tr>
+							<td>Confidence</td>
+							<td><%= attributes["confidence"] * 100 %>%</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-12 col-lg-6">
+		  <div class="FaceRecognition">
+		  	<div class="ojoizquierdo"></div>
+		  	<div class="ojoderecho"></div>
+		  	<div class="nariz"></div>
+		  	<img class="Face thumbnail" src="<%= @client.image %>" width="<%= image["width"] %>" height="<%= image["height"] %>">
+		  	<div class="caption">
+		        <h2><%= @client.nombre %></h2>
+		        <p>...</p>
+		        <p><a href="#" class="btn btn-primary">Button</a> <a href="#" class="btn btn-default">Button</a></p>
+		      </div>
+		  </div>
+		</div>
+	</div>
+  
+  
+</p>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>
+
+<%	
+	end
+end
+%>

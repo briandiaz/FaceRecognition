@@ -1,16 +1,7 @@
 $(document).ready(function(){
 	var tableAction = false;
-	$('.ojoizquierdo').hover(function(){
-		alert("Left Eye");
-	})
-		
-
-	$('.ojoderecho').hover(function(){
-		alert("Right Eye");
-	})
-	$("#boca").hover(function(){
-		alert("Mouth");
-	});
+	$("[rel='tooltip']").tooltip();
+	
 	$("#action_table").click(function(event){
 		event.preventDefault();
 		if(tableAction){

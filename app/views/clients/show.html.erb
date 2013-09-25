@@ -105,10 +105,10 @@
 		</div>
 		<div class="col-md-6 col-sm-12 col-lg-6">
 		  <div class="FaceRecognition">
-		  	<div class="ojoizquierdo"></div>
-		  	<div class="ojoderecho"></div>
-		  	<div class="nariz"></div>
-		  	<div id="boca">
+		  	<div class="ojoizquierdo" rel="tooltip" title="This is left eye"></div>
+		  	<div class="ojoderecho" rel="tooltip" title="This is right eye"></div>
+		  	<div class="nariz" rel="tooltip" title="This is nose"></div>
+		  	<div id="boca" rel="tooltip" title="This is mouth">
 		  		<div class="bocaizq"></div>
 			  	<div class="bocacent"></div>
 			  	<div class="bocader"></div>
@@ -117,7 +117,7 @@
 		  	<div class="caption">
 		        <h2><%= @client.nombre %></h2>
 		        <p>...</p>
-		        <p><a href="#" class="btn btn-primary">Button</a> <a href="#" class="btn btn-default">Button</a></p>
+		        <p><%= link_to "View", @client, :class=>"btn btn-primary" %></p>
 		      </div>
 		  </div>
 		</div>

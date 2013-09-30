@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	var tableAction = false;
+
+	tableAction = false;
 	$("[rel='tooltip']").tooltip();
 	
 	$("#action_table").click(function(event){
@@ -12,5 +13,7 @@ $(document).ready(function(){
 			tableAction = true;
 			$(".table").show("slow");
 		}
-	});
-})
+	})
+		
+});
+	
